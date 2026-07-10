@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "generated_at": "2026-07-09T03:20:00+00:00",
+    "ig_target_profile": "@disdikjabar",
+    "date_window": { "start": "2026-06-01", "end": "2026-06-30" },
+    "counts": { "instagram": 8, "x_twitter": 12 }
+  },
+  "summary": [
+    { "Metric": "Instagram comments kept", "Value": 8 },
+    { "Metric": "X/Twitter posts kept", "Value": 12 },
+    { "Metric": "x_dropped_no_keyword_match", "Value": 41 },
+    { "Metric": "x_dropped_retweet", "Value": 17 },
+    { "Metric": "x_kept_type_tweet", "Value": 6 },
+    { "Metric": "x_kept_type_reply", "Value": 4 },
+    { "Metric": "x_kept_type_quote", "Value": 2 },
+    { "Metric": "x_pii_redactions", "Value": 5 }
+  ],
+  "instagram": [
+    { "anon_username": "User_001", "post_shortcode": "DaNm_psT_Gs", "comment_timestamp": "2026-06-03T04:12:00", "is_reply": false, "comment_text_cleaned": "SPMB jabar error terus dari tadi pagi gak bisa daftar" },
+    { "anon_username": "User_002", "post_shortcode": "DaNm_psT_Gs", "comment_timestamp": "2026-06-03T04:40:00", "is_reply": true, "comment_text_cleaned": "sama kak punyaku juga loading terus di jalur zonasi" },
+    { "anon_username": "User_003", "post_shortcode": "DaNEapbmJyk", "comment_timestamp": "2026-06-08T09:05:00", "is_reply": false, "comment_text_cleaned": "pengumuman spmb jabar kapan min ditunggu dari kemarin" },
+    { "anon_username": "User_004", "post_shortcode": "DaNEapbmJyk", "comment_timestamp": "2026-06-08T10:22:00", "is_reply": true, "comment_text_cleaned": "server pcmb down lagi kayaknya web nya" },
+    { "anon_username": "User_005", "post_shortcode": "DaM2U1mHZIn", "comment_timestamp": "2026-06-14T02:31:00", "is_reply": false, "comment_text_cleaned": "jalur afirmasi kok janggal ya banyak yg lolos padahal jauh" },
+    { "anon_username": "User_006", "post_shortcode": "DaM2U1mHZIn", "comment_timestamp": "2026-06-14T03:15:00", "is_reply": false, "comment_text_cleaned": "sistem spmb jabar lambat pas jam sibuk tolong diperbaiki" },
+    { "anon_username": "User_007", "post_shortcode": "DaLIWP2JrhP", "comment_timestamp": "2026-06-21T07:44:00", "is_reply": false, "comment_text_cleaned": "pendaftaran online ribet pisan euy di daerah bandung" },
+    { "anon_username": "User_003", "post_shortcode": "DaLIWP2JrhP", "comment_timestamp": "2026-06-27T11:03:00", "is_reply": true, "comment_text_cleaned": "akhirnya bisa masuk portal spmb jabar nya setelah subuh" }
+  ],
+  "x_twitter": [
+    { "anon_username": "User_001", "tweet_timestamp": "2026-06-02T01:10:00", "tweet_type": "tweet", "matched_pattern": "A_technical_failure", "thread_group": "Thread_001", "tweet_text_cleaned": "SPMB jabar error mulu dari pagi, gimana mau daftar kalau webnya down terus", "quoted_text_cleaned": "" },
+    { "anon_username": "User_002", "tweet_timestamp": "2026-06-02T01:35:00", "tweet_type": "reply", "matched_pattern": "C2_system_status_broad", "thread_group": "Thread_001", "tweet_text_cleaned": "iya nih spmb jabar down parah, servernya gak kuat kayaknya", "quoted_text_cleaned": "" },
+    { "anon_username": "User_003", "tweet_timestamp": "2026-06-05T06:20:00", "tweet_type": "tweet", "matched_pattern": "F_hashtag_or_named_phrase", "thread_group": "Thread_002", "tweet_text_cleaned": "#SPMBJabar pengumuman molor lagi, katanya hari ini tapi belum keluar juga di bandung", "quoted_text_cleaned": "" },
+    { "anon_username": "User_004", "tweet_timestamp": "2026-06-09T08:00:00", "tweet_type": "quote", "matched_pattern": "B_results_access", "thread_group": "Thread_003", "tweet_text_cleaned": "bener banget ini, portal pcmb jabar gak bisa diakses buat liat hasil", "quoted_text_cleaned": "pengumuman PCMB jabar sudah bisa dicek di website resmi" },
+    { "anon_username": "User_005", "tweet_timestamp": "2026-06-11T03:45:00", "tweet_type": "tweet", "matched_pattern": "D_integrity_anomaly", "thread_group": "Thread_004", "tweet_text_cleaned": "curiga ada kecurangan di spmb jabar jalur prestasi, banyak yang janggal nilainya", "quoted_text_cleaned": "" },
+    { "anon_username": "User_006", "tweet_timestamp": "2026-06-11T04:02:00", "tweet_type": "reply", "matched_pattern": "D_integrity_anomaly", "thread_group": "Thread_004", "tweet_text_cleaned": "setuju, di cimahi juga ada yang titipan katanya spmb jabar", "quoted_text_cleaned": "" },
+    { "anon_username": "User_007", "tweet_timestamp": "2026-06-15T09:30:00", "tweet_type": "tweet", "matched_pattern": "C_system_outage", "thread_group": "Thread_005", "tweet_text_cleaned": "aplikasi spmb jabar force close terus di hp, sistem nya bermasalah", "quoted_text_cleaned": "" },
+    { "anon_username": "User_008", "tweet_timestamp": "2026-06-18T02:15:00", "tweet_type": "thread", "matched_pattern": "A_technical_failure", "thread_group": "Thread_006", "tweet_text_cleaned": "utas: kronologi spmb jabar error dari hari pertama sampai sekarang (1/3)", "quoted_text_cleaned": "" },
+    { "anon_username": "User_008", "tweet_timestamp": "2026-06-18T02:16:00", "tweet_type": "thread", "matched_pattern": "C2_system_status_broad", "thread_group": "Thread_006", "tweet_text_cleaned": "hari kedua spmb jabar makin lambat, tidak bisa upload berkas (2/3)", "quoted_text_cleaned": "" },
+    { "anon_username": "User_002", "tweet_timestamp": "2026-06-22T11:50:00", "tweet_type": "reply", "matched_pattern": "E_pathway_complaint", "thread_group": "Thread_007", "tweet_text_cleaned": "jalur zonasi spmb jabar bikin protes warga bekasi, radiusnya aneh", "quoted_text_cleaned": "" },
+    { "anon_username": "User_009", "tweet_timestamp": "2026-06-25T05:05:00", "tweet_type": "quote", "matched_pattern": "F_hashtag_or_named_phrase", "thread_group": "Thread_008", "tweet_text_cleaned": "sistem error SPMB jabar belum kelar juga, kasian yang mau daftar di garut", "quoted_text_cleaned": "update SPMB jabar: perbaikan sistem sedang berlangsung" },
+    { "anon_username": "User_010", "tweet_timestamp": "2026-06-29T07:40:00", "tweet_type": "tweet", "matched_pattern": "G_regional_language_admission", "thread_group": "Thread_009", "tweet_text_cleaned": "murid anyar di sakola tasikmalaya ribet pisan daftarna, loading wae", "quoted_text_cleaned": "" }
+  ]
+}

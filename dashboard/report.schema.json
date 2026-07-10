@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.org/pcmb-jabar/report.schema.json",
+  "title": "PCMB/SPMB Jabar 2026 Social Intelligence Report",
+  "description": "Contract for the JSON emitted by the Python pipeline's export_to_json().",
+  "type": "object",
+  "required": ["meta", "summary", "instagram", "x_twitter"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["generated_at", "ig_target_profile", "date_window", "counts"],
+      "properties": {
+        "generated_at": { "type": "string" },
+        "ig_target_profile": { "type": "string" },
+        "date_window": {
+          "type": "object",
+          "required": ["start", "end"],
+          "properties": {
+            "start": { "type": "string", "format": "date" },
+            "end": { "type": "string", "format": "date" }
+          }
+        },
+        "counts": {
+          "type": "object",
+          "required": ["instagram", "x_twitter"],
+          "properties": {
+            "instagram": { "type": "integer", "minimum": 0 },
+            "x_twitter": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["Metric", "Value"],
+        "properties": {
+          "Metric": { "type": "string" },
+          "Value": { "type": ["string", "number"] }
+        }
+      }
+    },
+    "instagram": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["anon_username", "post_shortcode", "comment_timestamp", "is_reply", "comment_text_cleaned"],
+        "properties": {
+          "anon_username": { "type": "string" },
+          "post_shortcode": { "type": "string" },
+          "comment_timestamp": { "type": "string" },
+          "is_reply": { "type": "boolean" },
+          "comment_text_cleaned": { "type": "string" }
+        }
+      }
+    },
+    "x_twitter": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["anon_username", "tweet_timestamp", "tweet_type", "matched_pattern", "tweet_text_cleaned"],
+        "properties": {
+          "anon_username": { "type": "string" },
+          "tweet_timestamp": { "type": "string" },
+          "tweet_type": { "type": "string", "enum": ["tweet", "reply", "quote", "thread"] },
+          "matched_pattern": { "type": "string" },
+          "thread_group": { "type": ["string", "null"] },
+          "tweet_text_cleaned": { "type": "string" },
+          "quoted_text_cleaned": { "type": "string" }
+        }
+      }
+    }
+  }
+}

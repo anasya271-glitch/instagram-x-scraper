@@ -1,0 +1,7 @@
+.venv/
+architecture/
+archive/
+*.txt
+*.xlsx
+session-instagram_username
+x_cookies.json

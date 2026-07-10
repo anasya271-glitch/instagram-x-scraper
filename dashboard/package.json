@@ -1,0 +1,19 @@
+{
+  "name": "pcmb-jabar-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Standalone TypeScript generator that turns the PCMB/SPMB Jabar 2026 scraper's JSON report into a single, self-contained interactive HTML dashboard (no runtime dependencies, no CDN).",
+  "license": "MIT",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "dev": "tsx src/main.ts",
+    "demo": "tsx src/main.ts --input sample/sample-report.json --output dashboard.html"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
