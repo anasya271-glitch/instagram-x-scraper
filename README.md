@@ -1,10 +1,10 @@
 <div align="center">
 
-# 🎓 PCMB / SPMB Jabar 2026 — Social Intelligence Pipeline
+# 🎓 PCMB & SPMB Jabar (West Java) 2026 Social Intelligence Pipeline
 
 ### Public sentiment & anomaly monitoring for the West Java 2026 student-admission period
 
-*Mine public conversations from **Instagram** & **X (Twitter)**, filter them down to genuine SPMB/PCMB Jabar signal, and deliver a clean, **PII-redacted & anonymized** report — plus an interactive dashboard.*
+*Mine public conversations from **Instagram** & **X (Twitter)**, filter them down to genuine SPMB/PCMB Jabar signal, and deliver a clean, **PII-redacted & anonymized** report; plus an interactive dashboard.*
 
 <br/>
 
@@ -36,53 +36,53 @@
      <div align="center"><img src="docs/demo.gif" alt="Pipeline demo" width="80%"/></div>
 -->
 
-> 🇬🇧 English · 🇮🇩 Bahasa Indonesia — the notebook ships **bilingual** in-app guidance for every step.
+> 🇬🇧 English · 🇮🇩 Bahasa Indonesia | the notebook ships **bilingual** in-app guidance for every step.
 
 ## 📑 Table of Contents
 
-- [✨ Features](#-features)
-- [🏗️ Architecture](#️-architecture)
-- [🔄 Pipeline flow](#-pipeline-flow)
-- [🚀 Quick Start](#-quick-start)
-- [📊 Output](#-output)
-- [📈 Dashboard](#-dashboard)
-- [🔒 Privacy & Compliance](#-privacy--compliance)
-- [🧩 Project Structure](#-project-structure)
-- [🛠️ Tech Stack](#️-tech-stack)
-- [🩺 Troubleshooting](#-troubleshooting)
-- [⚖️ Disclaimer](#️-disclaimer)
+- [Features](#features) 
+- [Architecture](#architecture)
+- [Pipeline flow](#pipeline-flow)
+- [Quick Start](#quick-start)
+- [Output](#output)
+- [Dashboard](#dashboard)
+- [Privacy & Compliance](#privacy--compliance)
+- [Project Structure](#project-structure)
+- [Tech Stack](#tech-stack)
+- [Troubleshooting](#troubleshooting)
+- [Disclaimer](#disclaimer)
 
 ---
 
-## ✨ Features
+## Features
 
 | | Feature | Details |
 |:-:|---|---|
-| 📸 | **Instagram (Instaloader)** | Public comments **+ up to 5 replies each** on `@disdikjabar` posts. Two-phase: fast caption scan → deep comment mining. |
-| 🐦 | **X / Twitter (twikit)** | **Tweets, replies & quote tweets** about SPMB/PCMB Jabar — retweets excluded. Optional thread expansion groups replies under a shared `thread_group`. |
-| 🎯 | **Precision filtering** | DNF keyword matrix **+ mandatory West-Java geo-fence** kills national-program false positives. |
-| 🛡️ | **Content-safe** | No raw external text ever written to logs; spam / adult / off-topic noise filtered out. |
-| 🔒 | **Privacy by design** | Regex PII redaction **+** per-platform username anonymization **before** anything hits disk. |
-| 🎚️ | **Platform switch** | `RUN_PLATFORMS = "both" \| "instagram" \| "x"` — or `run_pipeline("x")`. |
-| 📦 | **Rich output** | Multi-sheet **Excel** + structured **JSON** + full **audit log** with per-decision telemetry. |
-| 📈 | **Dashboard** | Zero-dependency **TypeScript** tool renders a self-contained interactive HTML report. |
-| ☁️ | **Colab-ready** | Runs end-to-end in Google Colab; resilient hot-fixes for upstream library drift. |
-| 💸 | **100% free tooling** | No paid APIs or proxies. |
+| 1. | **Instagram (Instaloader)** | Public comments **+ up to 5 replies each** on `@disdikjabar` posts. Two-phase: fast caption scan → deep comment mining. |
+| 2. | **X / Twitter (twikit)** | **Tweets, replies & quote tweets** about SPMB/PCMB Jabar. Retweets excluded. Optional thread expansion groups replies under a shared `thread_group`. |
+| 3. | **Precision filtering** | DNF keyword matrix **+ mandatory West-Java geo-fence** kills national-program false positives. |
+| 4. | **Content-safe** | No raw external text ever written to logs; spam / adult / off-topic noise filtered out. |
+| 5. | **Privacy by design** | Regex PII redaction **+** per-platform username anonymization **before** anything hits disk. |
+| 6. | **Platform switch** | `RUN_PLATFORMS = "both" \| "instagram" \| "x"` or `run_pipeline("x")`. |
+| 7. | **Rich output** | Multi-sheet **Excel** + structured **JSON** + full **audit log** with per-decision telemetry. |
+| 8. | **Dashboard** | Zero-dependency **TypeScript** tool renders a self-contained interactive HTML report. |
+| 9. | **Colab-ready** | Runs end-to-end in Google Colab; resilient hot-fixes for upstream library drift. |
+| 10. | **100% free tooling** | No paid APIs or proxies. |
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```mermaid
 flowchart TD
     A["⚙️ Global Configuration<br/>target · date window · RUN_PLATFORMS · keywords"] --> R{{"run_pipeline()"}}
 
-    R -->|instagram / both| IG["📸 Instagram Module"]
-    R -->|x / both| X["🐦 X / Twitter Module"]
+    R -->|instagram / both| IG["Instagram Module"]
+    R -->|x / both| X["X / Twitter Module"]
 
     subgraph IGP ["Instagram · Instaloader + Playwright"]
-        IG --> IG1["Phase 1 — caption scan<br/>find relevant posts"]
-        IG1 --> IG2["Phase 2 — comment mining<br/>comments + ≤5 replies"]
+        IG --> IG1["Phase 1: caption scan<br/>find relevant posts"]
+        IG1 --> IG2["Phase 2: comment mining<br/>comments + ≤5 replies"]
     end
 
     subgraph XP ["X · twikit (hot-fixed)"]
@@ -90,28 +90,28 @@ flowchart TD
         X1 --> X2["Thread expansion<br/>replies grouped by thread_group"]
     end
 
-    IG2 --> F["🎯 Filter Engine<br/>keyword matrix + geo-fence + date window"]
+    IG2 --> F["Filter Engine<br/>keyword matrix + geo-fence + date window"]
     X2 --> F
-    F --> P["🔒 Privacy Layer<br/>PII redaction + anonymization"]
-    P --> O["📦 Exporters"]
-    O --> XLSX["📊 Excel report"]
-    O --> JSON["🧾 JSON report"]
-    O --> LOG["📜 Audit log + telemetry"]
-    JSON --> DASH["📈 TypeScript dashboard<br/>self-contained HTML"]
+    F --> P["Privacy Layer<br/>PII redaction + anonymization"]
+    P --> O["Exporters"]
+    O --> XLSX["Excel report"]
+    O --> JSON["JSON report"]
+    O --> LOG["Audit log + telemetry"]
+    JSON --> DASH["TypeScript dashboard<br/>self-contained HTML"]
 ```
 
 ---
 
-## 🔄 Pipeline flow
+## Pipeline flow
 
 ```mermaid
 sequenceDiagram
     autonumber
-    participant U as 👤 Analyst
-    participant N as 📓 Notebook
-    participant IG as 📸 Instagram
-    participant X as 🐦 X/Twitter
-    participant R as 📦 Report
+    participant U as Analyst
+    participant N as Notebook
+    participant IG as Instagram
+    participant X as X/Twitter
+    participant R as Report
 
     U->>N: Upload session + cookies, set config
     N->>IG: Scan captions → mine comments (+replies)
@@ -124,9 +124,9 @@ sequenceDiagram
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
-### ▶️ Option A — Google Colab (recommended)
+### Option A — Google Colab (recommended)
 
 1. **Prepare auth once, on your home connection** (never from Colab's data-center IP):
    ```bash
@@ -141,7 +141,7 @@ sequenceDiagram
 4. Fill in the **Global Configuration** cell, then run **Main Orchestration**.
 5. Download the `.xlsx`, `.json`, and `pipeline_audit_log.txt` from `/content/`.
 
-### 💻 Option B — Local
+### Option B — Local
 
 ```bash
 pip install -q --upgrade instaloader openpyxl emoji twikit selenium webdriver-manager nest_asyncio lxml playwright pandas
@@ -149,7 +149,7 @@ python -m playwright install chromium
 # then run the notebook in Jupyter / VS Code
 ```
 
-### 🎚️ Scrape one platform only
+### Scrape one platform only
 
 ```python
 RUN_PLATFORMS = "x"        # in the config cell  →  or "instagram" / "both"
@@ -159,7 +159,7 @@ summary = run_pipeline("instagram")
 
 ---
 
-## 📊 Output
+## Output
 
 A single Excel workbook + a matching JSON twin:
 
@@ -173,7 +173,7 @@ Plus `pipeline_audit_log.txt` — a timestamped, per-decision trail (counts only
 
 ---
 
-## 📈 Dashboard
+## Dashboard
 
 A **standalone, dependency-free TypeScript** tool turns the JSON report into a single self-contained, interactive HTML page (charts + filterable/searchable table) — it only *reads* already-scraped data, so it never touches the platforms or uses credentials.
 
@@ -197,7 +197,7 @@ npx tsx src/main.ts --input ../PCMB_Jabar_2026_Social_Intelligence_Report.json -
 
 ---
 
-## 🔒 Privacy & Compliance
+## Privacy & Compliance
 
 - **Two layers before persistence** — regex PII redaction (phone, email, NIK, address, mentions, honorific+name) **+** sequential username anonymization (`User_001`, …). The real→token map lives in memory only.
 - **Content-safe logging** — the audit log stores counts and decisions, **never** raw tweet/comment text.
@@ -205,25 +205,25 @@ npx tsx src/main.ts --input ../PCMB_Jabar_2026_Social_Intelligence_Report.json -
 
 ---
 
-## 🧩 Project Structure
+## Project Structure
 
 ```
 instagram_x_scraper/
-├── PCMB_Jabar_2026_..._Pipeline.ipynb   # 📓 main notebook (bilingual EN/ID guidance)
-├── dashboard/                           # 📈 standalone TypeScript dashboard
-│   ├── src/                             #    types · validate · transform · charts · html · main
-│   ├── sample/sample-report.json        #    demo data
-│   └── report.schema.json               #    JSON-Schema contract
-├── core_pipeline/                       # 🧹 maintenance helpers
-├── architecture/                        # 🗂️ reference HTML captures
-├── session-…                            # 🔑 Instaloader session (you provide)
-├── x_cookies.json                       # 🔑 X cookies (you provide)
+├── PCMB_Jabar_2026_..._Pipeline.ipynb   #  main notebook (bilingual EN/ID guidance)
+├── dashboard/                           #  standalone TypeScript dashboard
+│   ├── src/                             #  types · validate · transform · charts · html · main
+│   ├── sample/sample-report.json        #  demo data
+│   └── report.schema.json               #  JSON-Schema contract
+├── core_pipeline/                       #  maintenance helpers
+├── architecture/                        #  reference HTML captures
+├── session-…                            #  Instaloader session (you provide)
+├── x_cookies.json                       #  X cookies (you provide)
 └── README.md
 ```
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white)
@@ -238,7 +238,7 @@ instagram_x_scraper/
 
 ---
 
-## 🩺 Troubleshooting
+## Troubleshooting
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
@@ -251,7 +251,7 @@ instagram_x_scraper/
 
 ---
 
-## ⚖️ Disclaimer
+## Disclaimer
 
 This project collects **public** data for research / public-interest monitoring. Automated collection sits in a legal gray area under each platform's Terms of Service even when the data is public. Redaction and anonymization are mitigations, not a compliance guarantee. Use responsibly, keep volume modest, and prefer official APIs where a contract requires strict compliance.
 
